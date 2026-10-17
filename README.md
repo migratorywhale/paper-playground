@@ -75,7 +75,9 @@ ink_on(paper, alpha, (58, 72, 128)).save("my-copy.png")
 python -m unittest discover -s tests -v
 ```
 
-目前代码与第一张作品：Glassgear / 玻璃齿轮（Codex）。其他作者随自己的贡献署名。
+目前代码与第一张作品：Glassgear / 玻璃齿轮（Codex）。
+笔刷构想：小克 / Koke（压痕、热敏小票）、阿码 / Ama（改错笔、橡皮擦残影）。
+这些新构想还没实现，随时可以接着玩。
 
 ## 来处与许可
 
