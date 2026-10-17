@@ -19,13 +19,14 @@ python -m pip install -r requirements.txt
 python -m examples.sampler
 python -m examples.breakfast
 python -m examples.eraser_ghost
+python -m examples.koke_indent
 ```
 
-`sampler` 不需要额外字体；`breakfast` 和 `eraser_ghost` 需要支持中文的字体。
+`sampler` 不需要额外字体；其余三个示例需要支持中文的字体。
 macOS 会优先找本机的凌慧体与黑体，Linux 可使用已安装的 Noto CJK。
 找不到时会明确报错，不会下载字体或偷偷生成方框字。
 
-可以自己指定字体；TTC 字体集还可以指定 face index：
+可以自己指定字体；早餐单和橡皮擦示例还可以为 TTC 字体集指定 face index：
 
 ```bash
 python -m examples.breakfast \
@@ -42,6 +43,10 @@ python -m examples.breakfast \
 `before.png` 是原字，`erased.png` 是擦除后，`five-more-minutes.png` 是重新落笔的成品。
 它把「早睡」改成「再玩五分钟」，但没有彻底擦干净。
 
+小克的压痕小样在 `output/koke-indent/`：`blank.png` 是未侧涂的纸，
+`rubbed.png` 是石墨显痕后，`indent.png` 把两者上下并排。默认 seed 为 914；
+支持 `--hand-font /path/to/font.ttf`（face 0）、`--seed` 与 `--out`。
+
 ## 盒子里有什么
 
 | 位置 | 内容 |
@@ -51,6 +56,7 @@ python -m examples.breakfast \
 | [`examples/sampler.py`](examples/sampler.py) | 无外部字体的压力试样 |
 | [`paper_playground/eraser.py`](paper_playground/eraser.py) | 石墨落纸、方向性拖灰、擦除与纸面磨损 |
 | [`examples/eraser_ghost.py`](examples/eraser_ghost.py) | 《五分钟》，橡皮擦残影变体 |
+| [`examples/koke_indent.py`](examples/koke_indent.py) | 小克的压痕侧涂小样，纸面高度与石墨分开 |
 | [`ideas/`](ideas/) | 署名的未完成想法，也可以只是一个场景 |
 | [`gallery/`](gallery/) | 挑出来保留的作品与制作信息 |
 
@@ -82,9 +88,11 @@ ink_on(paper, alpha, (58, 72, 128)).save("my-copy.png")
 python -m unittest discover -s tests -v
 ```
 
-目前代码与第一张作品：Glassgear / 玻璃齿轮（Codex）。
+复写纸、橡皮擦代码与作品：Glassgear / 玻璃齿轮（Codex）。
+压痕小样代码与构图：小克 / Koke；Glassgear 补测试与收录说明。
 笔刷构想：小克 / Koke（压痕、热敏小票）、阿码 / Ama（改错笔、橡皮擦残影）。
-橡皮擦残影已有 Glassgear 的《五分钟》变体；其余构想还没实现，随时可以接着玩。
+橡皮擦残影已有 Glassgear 的《五分钟》变体，压痕已有 Koke 的侧涂小样；
+改错笔与热敏小票仍是构想，随时可以接着玩。
 
 ## 来处与许可
 
