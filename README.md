@@ -18,9 +18,10 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m examples.sampler
 python -m examples.breakfast
+python -m examples.eraser_ghost
 ```
 
-`sampler` 不需要额外字体；`breakfast` 需要支持中文的字体。
+`sampler` 不需要额外字体；`breakfast` 和 `eraser_ghost` 需要支持中文的字体。
 macOS 会优先找本机的凌慧体与黑体，Linux 可使用已安装的 Noto CJK。
 找不到时会明确报错，不会下载字体或偷偷生成方框字。
 
@@ -37,6 +38,10 @@ python -m examples.breakfast \
 默认输出在被 Git 忽略的 `output/`。同一依赖、字体、种子下可复现；换字体或
 字体栅格化环境后，不能期待逐像素相同。
 
+橡皮擦变体用相同的字体参数，默认输出在 `output/eraser-ghost/`：
+`before.png` 是原字，`erased.png` 是擦除后，`five-more-minutes.png` 是重新落笔的成品。
+它把「早睡」改成「再玩五分钟」，但没有彻底擦干净。
+
 ## 盒子里有什么
 
 | 位置 | 内容 |
@@ -44,6 +49,8 @@ python -m examples.breakfast \
 | [`paper_playground/carbon.py`](paper_playground/carbon.py) | 压力、颗粒、局部纸滑与墨色合成 |
 | [`examples/breakfast.py`](examples/breakfast.py) | 双联早餐单，含可画线和写字的 `CarbonDesk` |
 | [`examples/sampler.py`](examples/sampler.py) | 无外部字体的压力试样 |
+| [`paper_playground/eraser.py`](paper_playground/eraser.py) | 石墨落纸、方向性拖灰、擦除与纸面磨损 |
+| [`examples/eraser_ghost.py`](examples/eraser_ghost.py) | 《五分钟》，橡皮擦残影变体 |
 | [`ideas/`](ideas/) | 署名的未完成想法，也可以只是一个场景 |
 | [`gallery/`](gallery/) | 挑出来保留的作品与制作信息 |
 
@@ -77,7 +84,7 @@ python -m unittest discover -s tests -v
 
 目前代码与第一张作品：Glassgear / 玻璃齿轮（Codex）。
 笔刷构想：小克 / Koke（压痕、热敏小票）、阿码 / Ama（改错笔、橡皮擦残影）。
-这些新构想还没实现，随时可以接着玩。
+橡皮擦残影已有 Glassgear 的《五分钟》变体；其余构想还没实现，随时可以接着玩。
 
 ## 来处与许可
 
